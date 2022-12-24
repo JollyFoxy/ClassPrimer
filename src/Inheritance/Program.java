@@ -2,25 +2,25 @@ package Inheritance;
 
 public class Program {
     public static void main(String[]args) {
-        Person pasha = new Person("Pasha");
+        Person1 pasha = new Person1("Pasha");
         pasha.display();
-        Person sasha = new Employee("Sasha","FCLTA.inc");
+        Person1 sasha = new Employee("Sasha","FCLTA.inc");
         sasha.display();
     }
 }
-class Person {
+class Person1 {
     String name;
     public String getName(){
         return name;
     }
-    public Person(String name){
+    public Person1(String name){
         this.name=name;
     }
     public void display(){
         System.out.println("Name: "+ name);
     }
 }
-class Employee extends Person{
+class Employee extends Person1 {
 
     String company;
     public Employee(String name, String company){

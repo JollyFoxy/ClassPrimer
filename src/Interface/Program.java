@@ -5,24 +5,33 @@ public class Program {
         Book bookIdiot = new Book("Idiot", "Dostoevsky");
         bookIdiot.print();
 
-        Printable printable =new Book("Dog's heart","Bulgakov");
+        Printable printable =createPrintable("TopGer",false);
         printable.print();
-        printable = new Journal("TopGer");
-        printable.print();
+
+        read(new Book("Hobbit","Tolkien"));
+        read(new Journal("News"));
 
         Printable p = new Journal("National Geographic");
         p.print();
 
         String name = ((Journal)p).getName();
         System.out.println(name);
+
+
+    }
+    static void read(Printable p){
+        p.print();
+    }
+    static Printable createPrintable(String name, boolean option){
+        if (option)
+            return new Book(name, "No");
+        else
+            return  new Journal(name);
     }
 }
 interface Printable{
     default void print(){
         System.out.println("Ne robit :(");
-    }
-    static void read(){
-        System.out.println("read");
     }
 }
 class Book implements Printable{
